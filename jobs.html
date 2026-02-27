@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MatchIQ Jobs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  background:#f8fafc;
+  color:#1e293b;
+}
+
+/* NAVBAR */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 60px;
+  background:white;
+  box-shadow:0 2px 8px rgba(0,0,0,0.04);
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:700;
+  font-size:18px;
+}
+
+.logo-icon{
+  width:35px;
+  height:35px;
+  background:#2dd4bf;
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.nav-links{
+  display:flex;
+  gap:25px;
+  align-items:center;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#475569;
+  font-size:14px;
+}
+
+.get-started{
+  background:#2dd4bf;
+  padding:8px 16px;
+  border-radius:8px;
+  color:white !important;
+}
+
+/* HEADER */
+.header{
+  padding:40px 60px 20px;
+}
+
+.header h1{
+  font-size:32px;
+  margin-bottom:8px;
+}
+
+.header p{
+  color:#64748b;
+  font-size:15px;
+}
+
+/* SEARCH */
+.search-box{
+  margin:20px 60px;
+  background:white;
+  padding:25px;
+  border-radius:14px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.05);
+}
+
+.search-box input{
+  width:100%;
+  padding:12px;
+  border-radius:8px;
+  border:1px solid #e2e8f0;
+  margin-bottom:15px;
+}
+
+.filters{
+  display:flex;
+  gap:10px;
+}
+
+.filter-btn{
+  padding:6px 14px;
+  border-radius:20px;
+  border:1px solid #e2e8f0;
+  font-size:13px;
+  cursor:pointer;
+  background:white;
+}
+
+.filter-btn.active{
+  background:#2dd4bf;
+  color:white;
+  border:none;
+}
+
+/* JOB GRID */
+.jobs{
+  padding:20px 60px 60px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:25px;
+}
+
+.job-card{
+  background:white;
+  padding:20px;
+  border-radius:14px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.05);
+  display:flex;
+  justify-content:space-between;
+}
+
+.job-info h3{
+  font-size:16px;
+  margin-bottom:5px;
+}
+
+.company{
+  color:#2dd4bf;
+  font-size:14px;
+  margin-bottom:5px;
+}
+
+.meta{
+  font-size:12px;
+  color:#64748b;
+  margin-bottom:10px;
+}
+
+.tags{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:15px;
+}
+
+.tags span{
+  background:#f1f5f9;
+  padding:4px 8px;
+  border-radius:15px;
+  font-size:11px;
+}
+
+.actions{
+  display:flex;
+  gap:10px;
+}
+
+.apply{
+  background:#2dd4bf;
+  color:white;
+  border:none;
+  padding:6px 12px;
+  border-radius:6px;
+  font-size:12px;
+  cursor:pointer;
+}
+
+.save{
+  background:#e2e8f0;
+  border:none;
+  padding:6px 12px;
+  border-radius:6px;
+  font-size:12px;
+  cursor:pointer;
+}
+
+/* MATCH CIRCLE */
+.match{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  background:conic-gradient(#2dd4bf 0% 80%, #e2e8f0 80%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:600;
+  font-size:13px;
+}
+
+.match.orange{
+  background:conic-gradient(#f59e0b 0% 60%, #e2e8f0 60%);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .jobs{
+    grid-template-columns:1fr;
+  }
+
+  .navbar,.header,.search-box,.jobs{
+    padding-left:20px;
+    padding-right:20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo">
+    <div class="logo-icon">🎁</div>
+    MatchIQ
+  </div>
+  <div class="jobs"></div>
+  <div class="nav-links">
+    <a href="#">Find Jobs</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+    <a href="#">Log in</a>
+    <a href="#" class="get-started">Get Started</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<div class="header">
+  <h1>Find Your Perfect Role</h1>
+  <p>Discover opportunities matched to your skills</p>
+</div>
+
+<!-- SEARCH -->
+<div class="search-box">
+  <input type="text" placeholder="Search jobs, companies, or skills...">
+
+  <div class="filters">
+    <button class="filter-btn active">All</button>
+    <button class="filter-btn">Full-time</button>
+    <button class="filter-btn">Part-time</button>
+    <button class="filter-btn">Contract</button>
+    <button class="filter-btn">Remote</button>
+  </div>
+</div>
+
+<!-- JOBS -->
+<div class="jobs">
+
+  <div class="job-card">
+    <div class="job-info">
+      <h3>Senior React Developer</h3>
+      <div class="company">TechVision Inc.</div>
+      <div class="meta">San Francisco, CA • $140k - $180k • 5+ years • 24 applicants</div>
+
+      <div class="tags">
+        <span>React</span>
+        <span>TypeScript</span>
+        <span>Node.js</span>
+        <span>GraphQL</span>
+        <span>AWS</span>
+      </div>
+
+      <div class="actions">
+        <button class="apply">Apply Now</button>
+        <button class="save">Save</button>
+      </div>
+    </div>
+
+    <div class="match">80%</div>
+  </div>
+
+  <div class="job-card">
+    <div class="job-info">
+      <h3>Full Stack Engineer</h3>
+      <div class="company">StartupHub</div>
+      <div class="meta">Seattle, WA • $120k - $155k • 2+ years • 42 applicants</div>
+
+      <div class="tags">
+        <span>React</span>
+        <span>Node.js</span>
+        <span>PostgreSQL</span>
+        <span>TypeScript</span>
+        <span>REST APIs</span>
+      </div>
+
+      <div class="actions">
+        <button class="apply">Apply Now</button>
+        <button class="save">Save</button>
+      </div>
+    </div>
+
+    <div class="match orange">60%</div>
+  </div>
+
+</div>
+
+</body>
+</html>
+<!-- Product Designer -->
+<div class="job-card">
+  <div class="job-info">
+    <h3>Product Designer <span style="font-size:11px;background:#e2e8f0;padding:3px 8px;border-radius:12px;margin-left:6px;">Full-time</span></h3>
+    <div class="company">DesignFlow Studio</div>
+    <div class="meta">New York, NY • $110k - $145k • 3+ years • 18 applicants</div>
+
+    <div class="tags">
+      <span>Figma</span>
+      <span>UI/UX</span>
+      <span>Design Systems</span>
+      <span>Prototyping</span>
+      <span>User Research</span>
+    </div>
+
+    <div class="actions">
+      <button class="apply">Apply Now</button>
+      <button class="save">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- Data Scientist -->
+<div class="job-card">
+  <div class="job-info">
+    <h3>Data Scientist <span style="font-size:11px;background:#e2e8f0;padding:3px 8px;border-radius:12px;margin-left:6px;">Remote</span></h3>
+    <div class="company">DataMind AI</div>
+    <div class="meta">Remote • $130k - $170k • 4+ years • 31 applicants</div>
+
+    <div class="tags">
+      <span>Python</span>
+      <span>Machine Learning</span>
+      <span>TensorFlow</span>
+      <span>SQL</span>
+      <span>Statistics</span>
+    </div>
+
+    <div class="actions">
+      <button class="apply">Apply Now</button>
+      <button class="save">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- DevOps Engineer -->
+<div class="job-card">
+  <div class="job-info">
+    <h3>DevOps Engineer <span style="font-size:11px;background:#e2e8f0;padding:3px 8px;border-radius:12px;margin-left:6px;">Full-time</span></h3>
+    <div class="company">CloudScale Systems</div>
+    <div class="meta">Austin, TX • $125k - $160k • 3+ years • 12 applicants</div>
+
+    <div class="tags">
+      <span>AWS</span>
+      <span>Docker</span>
+      <span>Kubernetes</span>
+      <span>Terraform</span>
+      <span>CI/CD</span>
+    </div>
+
+    <div class="actions">
+      <button class="apply">Apply Now</button>
+      <button class="save">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile Developer -->
+<div class="job-card">
+  <div class="job-info">
+    <h3>Mobile Developer <span style="font-size:11px;background:#e2e8f0;padding:3px 8px;border-radius:12px;margin-left:6px;">Contract</span></h3>
+    <div class="company">AppWorks</div>
+    <div class="meta">Los Angeles, CA • $100k - $130k • 2+ years • 15 applicants</div>
+
+    <div class="tags">
+      <span>React Native</span>
+      <span>JavaScript</span>
+      <span>iOS</span>
+      <span>Android</span>
+      <span>Firebase</span>
+    </div>
+
+    <div class="actions">
+      <button class="apply">Apply Now</button>
+      <button class="save">Save</button>
+    </div>
+  </div>
+</div>
